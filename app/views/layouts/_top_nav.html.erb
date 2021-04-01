@@ -30,8 +30,7 @@
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
       <li>
-      #This <a> doesn't link anywhere, it's just to trick bootstrap
-        <a>Signed in as <%= current_user.name %> </a>
+        <span class="navbar-text">Signed in as <%= current_user.name %> </span>
       </li>
       <li> 
         <%= link_to "Logout", '/logout' %>
