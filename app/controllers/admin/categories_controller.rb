@@ -1,6 +1,6 @@
 class Admin::CategoriesController < ApplicationController
   def index
-  @categories = Categories.all
+  @categories = Category.all
   end
 
   def new
