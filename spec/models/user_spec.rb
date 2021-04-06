@@ -66,4 +66,33 @@ RSpec.describe User, type: :model do
       expect(@user2.errors.full_messages).to include("Email has already been taken")
     end
   end
+
+  describe '.authenticate_with_credentials' do
+    before do 
+      @user = User.new({email: "test@test.com",
+      password: "testpassword",
+      password_confirmation: "testpassword",
+      first_name: "Bob",
+      last_name: "Smith"})
+    end
+
+    it 'should authenticate with credentials when all fields valid' do
+      @user.save
+      @authenticate = User.authenticate_with_credentials(@user.email, @user.password)
+      expect(@authenticate).to eql(@user)
+    end
+
+    it 'should not authenticate when email is invalid' do
+      @user.save
+      @authenticate = User.authenticate_with_credentials("wrongemail@test.com", @user.password)
+      expect(@authenticate).to be_nil
+    end
+    
+    it 'should not authenticate when password is invalid' do
+      @user.save
+      @authenticate = User.authenticate_with_credentials(@user.email, "wrongpassword123")
+      expect(@authenticate).to be_nil
+    end
+  end
+
 end
