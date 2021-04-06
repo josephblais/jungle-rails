@@ -93,6 +93,18 @@ RSpec.describe User, type: :model do
       @authenticate = User.authenticate_with_credentials(@user.email, "wrongpassword123")
       expect(@authenticate).to be_nil
     end
+
+    it 'should authenticate even if email is padded by spaces' do
+      @user.save
+      @authenticate = User.authenticate_with_credentials("    test@test.com   ", @user.password)
+      expect(@authenticate).to eql(@user)
+    end
+    
+    it 'should authenticate even if email is in the wrong case' do
+      @user.save
+      @authenticate = User.authenticate_with_credentials("tEsT@tEsT.cOm", @user.password)
+      expect(@authenticate).to eql(@user)
+    end
   end
 
 end
