@@ -3,8 +3,15 @@
 A mini e-commerce application built with Rails for purposes of teaching Rails by example. Users can view items by category, add items to their cart, and checkout with Stripe. Admins can additionally add and delete products and categories.
 
 ## UI
+User navigates to electronics and adds an item to cart:
+!["User navigates to electronics and adds an item to cart"](https://raw.githubusercontent.com/josephblais/jungle-rails/master/docs/view-electronics-and-add-to-cart.gif)
 
-!(https://raw.githubusercontent.com/josephblais/jungle-rails/master/docs/view-electronics-and-add-to-cart.gif)
+User visits their cart and begins credit card checkout:
+!["User visits their cart and begins credit card checkout"](https://raw.githubusercontent.com/josephblais/jungle-rails/master/docs/view-cart.gif)
+
+Admin verifies credentials and adds a product category:
+!["Admin verifies credentials and adds a product category"](https://raw.githubusercontent.com/josephblais/jungle-rails/master/docs/add-category.gif)
+
 
 ## Additional Steps for Apple M1 Machines
 
